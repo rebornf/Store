@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by fty
+ * Created by geely
  */
 public class RedisShardedPool {
     private static ShardedJedisPool pool;//sharded jedis连接池

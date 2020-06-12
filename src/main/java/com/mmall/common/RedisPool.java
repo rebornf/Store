@@ -6,7 +6,7 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
- * Created by fty
+ * Created by geely
  */
 public class RedisPool {
     private static JedisPool pool;//jedis连接池

@@ -1,7 +1,7 @@
 package com.mmall.common;
 
 /**
- * Created by fty
+ * Created by geely
  */
 public enum ResponseCode {
 
