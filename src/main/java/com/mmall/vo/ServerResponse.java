@@ -1,5 +1,6 @@
-package com.mmall.common;
+package com.mmall.vo;
 
+import com.mmall.common.ResponseCode;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
