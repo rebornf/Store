@@ -46,7 +46,7 @@ public class UserController {
         if(response.isSuccess()){
 
            //session.setAttribute(Const.CURRENT_USER,response.getData());
-            //CookieUtil.writeLoginToken(httpServletResponse,session.getId());
+            CookieUtil.writeLoginToken(httpServletResponse,session.getId());
             //把登录信息保存到redis中
             RedisShardedPoolUtil.setEx(session.getId(), JsonUtil.obj2String(response.getData()),Const.RedisCacheExtime.REDIS_SESSION_EXTIME);
 
@@ -58,8 +58,8 @@ public class UserController {
     @ResponseBody
     public ServerResponse<String> logout(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse){
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
-        CookieUtil.delLoginToken(httpServletRequest,httpServletResponse);
-        RedisShardedPoolUtil.del(loginToken);
+       // CookieUtil.delLoginToken(httpServletRequest,httpServletResponse);
+        //RedisShardedPoolUtil.del(loginToken);
 
 //        session.removeAttribute(Const.CURRENT_USER);
 
@@ -85,7 +85,7 @@ public class UserController {
     public ServerResponse<User> getUserInfo(HttpServletRequest httpServletRequest){
 
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
-        if(StringUtils.isEmpty(loginToken)){
+        if(StringUtils.isEmpty(loginToken)){   //
             return ServerResponse.createByErrorMessage("用户未登录,无法获取当前用户的信息");
         }
         String userJsonStr = RedisShardedPoolUtil.get(loginToken);

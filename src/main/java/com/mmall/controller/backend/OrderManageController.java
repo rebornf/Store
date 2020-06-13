@@ -28,13 +28,13 @@ import javax.servlet.http.HttpServletRequest;
 public class OrderManageController {
 
     @Autowired
-    private IUserService iUserService;
+    IUserService iUserService;
     @Autowired
-    private IOrderService iOrderService;
+    IOrderService iOrderService;
 
     @RequestMapping("list.do")
     @ResponseBody
-    public ServerResponse<PageInfo> orderList(HttpServletRequest httpServletRequest, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+    public ServerResponse<PageInfo> orderList(@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                               @RequestParam(value = "pageSize",defaultValue = "10")int pageSize){
 
 //        String loginToken = CookieUtil.readLoginToken(httpServletRequest);

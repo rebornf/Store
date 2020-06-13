@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class CookieUtil {
 
-    private final static String COOKIE_DOMAIN = ".rebornjava.com";
+    private final static String COOKIE_DOMAIN = "rebornjava.com";
     private final static String COOKIE_NAME = "mmall_login_token";
 
 
@@ -34,9 +34,9 @@ public class CookieUtil {
     //X:domain=".happymmall.com"
     //a:A.rebornjava.com            cookie:domain=A.rebornjava.com;path="/"
     //b:B.rebornjavacom            cookie:domain=B.rebornjava.com;path="/"
-    //c:A.rebornjava.com/test/cc    cookie:domain=A.happymmall.com;path="/test/cc"
-    //d:A.rebornjava.com/test/dd    cookie:domain=A.happymmall.com;path="/test/dd"
-    //e:A.rebornjava.com/test       cookie:domain=A.happymmall.com;path="/test"
+    //c:A.rebornjava.com/test/cc    cookie:domain=A.rebornjava.com;path="/test/cc"
+    //d:A.rebornjava.com/test/dd    cookie:domain=A.rebornjava.com;path="/test/dd"
+    //e:A.rebornjava.com/test       cookie:domain=A.rebornjava.com;path="/test"
 
     public static void writeLoginToken(HttpServletResponse response,String token){
         Cookie ck = new Cookie(COOKIE_NAME,token);
