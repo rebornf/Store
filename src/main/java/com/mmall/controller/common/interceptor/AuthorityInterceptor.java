@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Created by geely
+ * Created by fty
  */
 @Slf4j
 public class AuthorityInterceptor implements HandlerInterceptor{
@@ -42,7 +42,7 @@ public class AuthorityInterceptor implements HandlerInterceptor{
         Map paramMap = request.getParameterMap();
         Iterator it = paramMap.entrySet().iterator();
         while (it.hasNext()){
-            Map.Entry entry = (Map.Entry)it.next();
+            Map.Entry entry = (Map.Entry)it.next();//强转成Map.entry
             String mapKey = (String)entry.getKey();
 
             String mapValue = StringUtils.EMPTY;
@@ -77,8 +77,8 @@ public class AuthorityInterceptor implements HandlerInterceptor{
             //返回false.即不会调用controller里的方法
             response.reset();//geelynote 这里要添加reset，否则报异常 getWriter() has already been called for this response.
             response.setCharacterEncoding("UTF-8");//geelynote 这里要设置编码，否则会乱码
-            response.setContentType("application/json;charset=UTF-8");//geelynote 这里要设置返回值的类型，因为全部是json接口。
-
+            response.setContentType("application/json;charset=UTF-8");// 这里要设置返回值的类型，因为全部是json接口。
+            //把response托管到拦截器中
             PrintWriter out = response.getWriter();
 
             //上传由于富文本的控件要求，要特殊处理返回值，这里面区分是否登录以及是否有权限
@@ -102,7 +102,7 @@ public class AuthorityInterceptor implements HandlerInterceptor{
                 }
             }
             out.flush();
-            out.close();//geelynote 这里要关闭
+            out.close();//这里要关闭
 
             return false;
 

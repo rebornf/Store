@@ -128,12 +128,4 @@ public class CategoryManageController {
         //全部通过拦截器验证是否登录以及权限
         return iCategoryService.selectCategoryAndChildrenById(categoryId);
     }
-
-
-
-
-
-
-
-
 }

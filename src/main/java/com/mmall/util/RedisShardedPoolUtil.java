@@ -63,7 +63,7 @@ public class RedisShardedPoolUtil {
         return result;
     }
 
-    public static String getSet(String key,String value){
+    public static String getSet(String key,String value){ //设置一个新值，并拿到它的值，getset具有原子性
         ShardedJedis jedis = null;
         String result = null;
 
